@@ -200,6 +200,9 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
     setCapturedPieces({ white: [], black: [] });
     setGameStatus('Your turn');
     setShowGameOverDialog(false);
+    setWhiteTime(600);
+    setBlackTime(600);
+    setGameActive(true);
   };
 
   const handleResign = () => {
