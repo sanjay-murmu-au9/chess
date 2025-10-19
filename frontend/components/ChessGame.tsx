@@ -4,13 +4,13 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Alert,
   ScrollView,
   ActivityIndicator,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Chess } from 'chess.js';
 import ChessBoard from './ChessBoard';
+import ConfirmDialog from './ConfirmDialog';
 import { getAIMove } from '../utils/stockfishEngine';
 
 interface ChessGameProps {
