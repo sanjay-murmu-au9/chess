@@ -239,6 +239,35 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
           </View>
         )}
       </ScrollView>
+
+      {/* Resign Confirmation Dialog */}
+      <ConfirmDialog
+        visible={showResignDialog}
+        title="Resign Game"
+        message="Are you sure you want to resign? The AI will win."
+        confirmText="Resign"
+        cancelText="Cancel"
+        confirmColor="#e74c3c"
+        onConfirm={handleResign}
+        onCancel={() => setShowResignDialog(false)}
+      />
+
+      {/* Game Over Dialog */}
+      <ConfirmDialog
+        visible={showGameOverDialog}
+        title="Game Over"
+        message={gameOverMessage}
+        confirmText="New Game"
+        cancelText="Back to Menu"
+        confirmColor="#7B61FF"
+        onConfirm={() => {
+          resetGame();
+        }}
+        onCancel={() => {
+          setShowGameOverDialog(false);
+          onBackToMenu();
+        }}
+      />
     </SafeAreaView>
   );
 }
