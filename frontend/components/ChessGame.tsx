@@ -46,6 +46,45 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
     updateGameStatus();
   }, [fen]);
 
+  // Timer countdown effect
+  useEffect(() => {
+    if (!gameActive || chess.isGameOver() || showGameOverDialog) return;
+
+    const timer = setInterval(() => {
+      if (chess.turn() === 'w' && !isAIThinking) {
+        // White's turn - countdown white timer
+        setWhiteTime((prev) => {
+          if (prev <= 1) {
+            setGameActive(false);
+            setGameOverMessage('Time out! AI wins by timeout.');
+            setShowGameOverDialog(true);
+            return 0;
+          }
+          return prev - 1;
+        });
+      } else if (chess.turn() === 'b' && isAIThinking) {
+        // Black's turn - countdown black timer (AI)
+        setBlackTime((prev) => {
+          if (prev <= 1) {
+            setGameActive(false);
+            setGameOverMessage('AI ran out of time! You win!');
+            setShowGameOverDialog(true);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [gameActive, chess.turn(), isAIThinking, showGameOverDialog]);
+
+  const formatTime = (seconds: number): string => {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${mins}:${secs.toString().padStart(2, '0')}`;
+  };
+
   const updateGameStatus = () => {
     if (chess.isCheckmate()) {
       const winner = chess.turn() === 'w' ? 'Black' : 'White';
