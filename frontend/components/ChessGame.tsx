@@ -225,7 +225,7 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
           <TouchableOpacity style={styles.button} onPress={resetGame}>
             <Text style={styles.buttonText}>New Game</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, styles.resignButton]} onPress={resignGame}>
+          <TouchableOpacity style={[styles.button, styles.resignButton]} onPress={() => setShowResignDialog(true)}>
             <Text style={styles.buttonText}>Resign</Text>
           </TouchableOpacity>
         </View>
