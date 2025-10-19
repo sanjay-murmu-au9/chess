@@ -449,4 +449,44 @@ const styles = StyleSheet.create({
     color: '#a0a0a0',
     lineHeight: 18,
   },
+  timerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 12,
+    backgroundColor: '#16213e',
+    borderRadius: 8,
+    marginBottom: 12,
+  },
+  timerLabel: {
+    flex: 1,
+  },
+  timerLabelText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#a0a0a0',
+  },
+  timerBox: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: '#2a2a4e',
+    borderRadius: 8,
+    borderWidth: 2,
+    borderColor: '#2a2a4e',
+    minWidth: 80,
+    alignItems: 'center',
+  },
+  timerBoxActive: {
+    borderColor: '#7B61FF',
+    backgroundColor: '#7B61FF20',
+  },
+  timerText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    fontVariant: ['tabular-nums'],
+  },
+  timerTextDanger: {
+    color: '#e74c3c',
+  },
 });
