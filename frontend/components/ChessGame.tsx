@@ -31,6 +31,11 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
     white: string[];
     black: string[];
   }>({ white: [], black: [] });
+  
+  // Dialog states
+  const [showResignDialog, setShowResignDialog] = useState(false);
+  const [showGameOverDialog, setShowGameOverDialog] = useState(false);
+  const [gameOverMessage, setGameOverMessage] = useState('');
 
   useEffect(() => {
     updateGameStatus();
@@ -40,16 +45,12 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
     if (chess.isCheckmate()) {
       const winner = chess.turn() === 'w' ? 'Black' : 'White';
       setGameStatus(`Checkmate! ${winner} wins!`);
-      Alert.alert('Game Over', `${winner} wins by checkmate!`, [
-        { text: 'New Game', onPress: resetGame },
-        { text: 'Back to Menu', onPress: onBackToMenu },
-      ]);
+      setGameOverMessage(`${winner} wins by checkmate!`);
+      setShowGameOverDialog(true);
     } else if (chess.isDraw()) {
       setGameStatus('Draw!');
-      Alert.alert('Game Over', 'The game is a draw!', [
-        { text: 'New Game', onPress: resetGame },
-        { text: 'Back to Menu', onPress: onBackToMenu },
-      ]);
+      setGameOverMessage('The game is a draw!');
+      setShowGameOverDialog(true);
     } else if (chess.isCheck()) {
       setGameStatus('Check!');
     } else {
