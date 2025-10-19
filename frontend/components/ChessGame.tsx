@@ -155,22 +155,13 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
     setMoveHistory([]);
     setCapturedPieces({ white: [], black: [] });
     setGameStatus('Your turn');
+    setShowGameOverDialog(false);
   };
 
-  const resignGame = () => {
-    Alert.alert('Resign', 'Are you sure you want to resign?', [
-      { text: 'Cancel', style: 'cancel' },
-      {
-        text: 'Resign',
-        style: 'destructive',
-        onPress: () => {
-          Alert.alert('Game Over', 'You resigned. AI wins!', [
-            { text: 'New Game', onPress: resetGame },
-            { text: 'Back to Menu', onPress: onBackToMenu },
-          ]);
-        },
-      },
-    ]);
+  const handleResign = () => {
+    setShowResignDialog(false);
+    setGameOverMessage('You resigned. AI wins!');
+    setShowGameOverDialog(true);
   };
 
   const getPieceSymbol = (piece: string): string => {
