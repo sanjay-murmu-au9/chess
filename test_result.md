@@ -175,6 +175,18 @@ frontend:
         agent: "main"
         comment: "Implemented minimax algorithm with alpha-beta pruning for AI moves. Easy: 70% random + 30% depth-1, Medium: depth-2 search, Hard: depth-3 search. Includes piece values and positional evaluation."
 
+  - task: "Custom Dialog Component for Cross-Platform Alerts"
+    implemented: true
+    working: true
+    file: "/app/frontend/components/ConfirmDialog.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Created reusable ConfirmDialog component using React Native Modal API to replace Alert.alert which doesn't work on web. Features: dark themed overlay, customizable title/message/buttons, works on both web and native mobile platforms. Used for resign confirmation and game over dialogs."
+
 metadata:
   created_by: "main_agent"
   version: "1.0"
