@@ -147,15 +147,18 @@ frontend:
 
   - task: "Chess Game Logic & AI Integration"
     implemented: true
-    working: "NA"
+    working: false
     file: "/app/frontend/components/ChessGame.tsx"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
     needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
         comment: "Implemented full chess game with chess.js for move validation, tap-to-select/tap-to-move interaction, turn management, check/checkmate/draw detection, captured pieces display, move history, New Game and Resign buttons, and AI opponent integration."
+      - working: false
+        agent: "user"
+        comment: "User reported: Resign button is not working. Issue: Alert.alert doesn't work on web preview, only works on native mobile. Need to implement cross-platform solution."
 
   - task: "AI Chess Engine (Stockfish-like)"
     implemented: true
