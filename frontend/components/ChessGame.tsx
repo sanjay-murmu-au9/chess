@@ -280,6 +280,18 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
           </View>
         </View>
 
+        {/* Player Timer (White) */}
+        <View style={styles.timerContainer}>
+          <View style={styles.timerLabel}>
+            <Text style={styles.timerLabelText}>You</Text>
+          </View>
+          <View style={[styles.timerBox, chess.turn() === 'w' && styles.timerBoxActive]}>
+            <Text style={[styles.timerText, whiteTime <= 30 && styles.timerTextDanger]}>
+              {formatTime(whiteTime)}
+            </Text>
+          </View>
+        </View>
+
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button} onPress={resetGame}>
             <Text style={styles.buttonText}>New Game</Text>
