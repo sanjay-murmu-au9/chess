@@ -147,11 +147,11 @@ frontend:
 
   - task: "Chess Game Logic & AI Integration"
     implemented: true
-    working: false
+    working: true
     file: "/app/frontend/components/ChessGame.tsx"
-    stuck_count: 1
+    stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
@@ -159,6 +159,9 @@ frontend:
       - working: false
         agent: "user"
         comment: "User reported: Resign button is not working. Issue: Alert.alert doesn't work on web preview, only works on native mobile. Need to implement cross-platform solution."
+      - working: true
+        agent: "main"
+        comment: "FIXED: Created custom ConfirmDialog component (Modal-based) that works on both web and mobile. Replaced all Alert.alert calls with ConfirmDialog. Resign button now shows beautiful custom dialog with Cancel/Resign options. Game over dialog also updated with New Game/Back to Menu options. Tested and working perfectly on web."
 
   - task: "AI Chess Engine (Stockfish-like)"
     implemented: true
