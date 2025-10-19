@@ -32,6 +32,11 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
     black: string[];
   }>({ white: [], black: [] });
   
+  // Timer states - 10 minutes (600 seconds) for each player
+  const [whiteTime, setWhiteTime] = useState(600);
+  const [blackTime, setBlackTime] = useState(600);
+  const [gameActive, setGameActive] = useState(true);
+  
   // Dialog states
   const [showResignDialog, setShowResignDialog] = useState(false);
   const [showGameOverDialog, setShowGameOverDialog] = useState(false);
