@@ -239,6 +239,18 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
           {isAIThinking && <ActivityIndicator size="small" color="#7B61FF" />}
         </View>
 
+        {/* AI Timer (Black) */}
+        <View style={styles.timerContainer}>
+          <View style={styles.timerLabel}>
+            <Text style={styles.timerLabelText}>AI</Text>
+          </View>
+          <View style={[styles.timerBox, chess.turn() === 'b' && styles.timerBoxActive]}>
+            <Text style={[styles.timerText, blackTime <= 30 && styles.timerTextDanger]}>
+              {formatTime(blackTime)}
+            </Text>
+          </View>
+        </View>
+
         <View style={styles.capturedContainer}>
           <Text style={styles.capturedTitle}>Captured by AI:</Text>
           <View style={styles.capturedPieces}>
