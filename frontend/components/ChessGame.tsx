@@ -249,7 +249,7 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
           <View style={styles.timerLabel}>
             <Text style={styles.timerLabelText}>AI</Text>
           </View>
-          <View style={[styles.timerBox, chess.turn() === 'b' && styles.timerBoxActive]}>
+          <View style={[styles.timerBox, isAIThinking && styles.timerBoxActive]}>
             <Text style={[styles.timerText, blackTime <= 30 && styles.timerTextDanger]}>
               {formatTime(blackTime)}
             </Text>
