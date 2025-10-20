@@ -203,3 +203,32 @@ async def update_profile(request: Request, age: Optional[int] = None, country: O
         "losses": updated_user.get("losses", 0),
         "draws": updated_user.get("draws", 0)
     }
+
+@router.get("/users/all")
+async def get_all_users():
+    """Admin endpoint - Get all registered users"""
+    db = await get_db()
+    
+    # Get all users
+    users = await db.users.find().to_list(1000)
+    
+    # Format response
+    user_list = []
+    for user in users:
+        user_list.append({
+            "email": user.get("email"),
+            "name": user.get("name"),
+            "age": user.get("age"),
+            "country": user.get("country"),
+            "profile_complete": user.get("profile_complete", False),
+            "created_at": user.get("created_at"),
+            "total_games": user.get("total_games", 0),
+            "wins": user.get("wins", 0),
+            "losses": user.get("losses", 0),
+            "draws": user.get("draws", 0)
+        })
+    
+    return {
+        "total_users": len(user_list),
+        "users": user_list
+    }
