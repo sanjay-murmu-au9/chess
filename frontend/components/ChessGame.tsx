@@ -51,8 +51,8 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
     if (!gameActive || chess.isGameOver() || showGameOverDialog) return;
 
     const timer = setInterval(() => {
-      if (chess.turn() === 'w' && !isAIThinking) {
-        // White's turn - countdown white timer
+      if (chess.turn() === 'w') {
+        // White's turn (player) - countdown white timer
         setWhiteTime((prev) => {
           if (prev <= 1) {
             setGameActive(false);
@@ -62,8 +62,8 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
           }
           return prev - 1;
         });
-      } else if (chess.turn() === 'b' && isAIThinking) {
-        // Black's turn - countdown black timer (AI)
+      } else if (chess.turn() === 'b') {
+        // Black's turn (AI) - countdown black timer
         setBlackTime((prev) => {
           if (prev <= 1) {
             setGameActive(false);
@@ -77,7 +77,7 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [gameActive, chess.turn(), isAIThinking, showGameOverDialog]);
+  }, [gameActive, chess.turn(), showGameOverDialog]);
 
   const formatTime = (seconds: number): string => {
     const mins = Math.floor(seconds / 60);
