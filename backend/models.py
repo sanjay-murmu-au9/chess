@@ -6,6 +6,9 @@ class User(BaseModel):
     email: str
     name: str
     picture: Optional[str] = None
+    age: Optional[int] = None
+    country: Optional[str] = None
+    profile_complete: bool = False
     created_at: datetime = Field(default_factory=lambda: datetime.utcnow())
     total_games: int = 0
     wins: int = 0
