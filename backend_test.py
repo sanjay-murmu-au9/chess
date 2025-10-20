@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """
-Backend API Testing for Chess Mobile App
-Tests basic health checks, MongoDB operations, and environment setup
+Comprehensive Backend Testing for Chess App
+Tests authentication endpoints, MongoDB connection, and scalability aspects
 """
 
 import requests
 import json
 import os
+import time
+import asyncio
+import concurrent.futures
 from datetime import datetime
 import sys
+import uuid
 
 # Get backend URL from frontend .env file
 def get_backend_url():
