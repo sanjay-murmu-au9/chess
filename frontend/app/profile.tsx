@@ -95,6 +95,37 @@ export default function ProfileScreen() {
           <Ionicons name="log-out" size={20} color="#ffffff" />
           <Text style={styles.logoutButtonText}>Logout</Text>
         </TouchableOpacity>
+
+        <View style={styles.legalSection}>
+          <Text style={styles.legalTitle}>Legal & Support</Text>
+          
+          <TouchableOpacity 
+            style={styles.legalLink}
+            onPress={() => router.push('/privacy')}
+          >
+            <Ionicons name="shield-checkmark-outline" size={20} color="#7B61FF" />
+            <Text style={styles.legalLinkText}>Privacy Policy</Text>
+            <Ionicons name="chevron-forward" size={20} color="#666" />
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.legalLink}
+            onPress={() => router.push('/terms')}
+          >
+            <Ionicons name="document-text-outline" size={20} color="#7B61FF" />
+            <Text style={styles.legalLinkText}>Terms of Service</Text>
+            <Ionicons name="chevron-forward" size={20} color="#666" />
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.legalLink}
+            onPress={() => router.push('/data-deletion')}
+          >
+            <Ionicons name="trash-outline" size={20} color="#e74c3c" />
+            <Text style={[styles.legalLinkText, { color: '#e74c3c' }]}>Delete My Data</Text>
+            <Ionicons name="chevron-forward" size={20} color="#666" />
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
