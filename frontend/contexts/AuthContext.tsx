@@ -8,6 +8,9 @@ interface User {
   email: string;
   name: string;
   picture?: string;
+  age?: number;
+  country?: string;
+  profile_complete: boolean;
   total_games: number;
   wins: number;
   losses: number;
@@ -19,6 +22,7 @@ interface AuthContextType {
   loading: boolean;
   login: () => void;
   logout: () => void;
+  updateProfile: (age: number, country: string) => Promise<void>;
   sessionToken: string | null;
 }
 
