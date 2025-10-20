@@ -49,7 +49,20 @@ export default function LoginScreen() {
           </TouchableOpacity>
 
           <Text style={styles.privacyText}>
-            By signing in, you agree to our Terms of Service and Privacy Policy
+            By signing in, you agree to our{' '}
+            <Text 
+              style={styles.privacyLink}
+              onPress={() => router.push('/terms')}
+            >
+              Terms of Service
+            </Text>{' '}
+            and{' '}
+            <Text 
+              style={styles.privacyLink}
+              onPress={() => router.push('/privacy')}
+            >
+              Privacy Policy
+            </Text>
           </Text>
         </View>
       </View>
