@@ -161,8 +161,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const redirectUrl = Linking.createURL('/');
     const authUrl = `https://auth.emergentagent.com/?redirect=${encodeURIComponent(redirectUrl)}`;
     
-    // Open Emergent auth in browser
-    Linking.openURL(authUrl);
+    // Check if running on web
+    if (typeof window !== 'undefined' && window.location.protocol.startsWith('http')) {
+      // For web: Open in same window (will redirect back)
+      window.location.href = authUrl;
+    } else {
+      // For mobile: Open in browser (will deep link back)
+      Linking.openURL(authUrl);
+    }
   };
 
   const logout = async () => {
