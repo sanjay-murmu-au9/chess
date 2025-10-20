@@ -186,6 +186,29 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  const updateProfile = async (age: number, country: string) => {
+    if (!sessionToken) return;
+
+    try {
+      const response = await fetch(`${BACKEND_URL}/api/auth/profile?age=${age}&country=${encodeURIComponent(country)}`, {
+        method: 'PUT',
+        headers: {
+          'Authorization': `Bearer ${sessionToken}`,
+        },
+      });
+
+      if (response.ok) {
+        const updated = await response.json();
+        setUser(updated);
+      } else {
+        throw new Error('Failed to update profile');
+      }
+    } catch (error) {
+      console.error('Error updating profile:', error);
+      throw error;
+    }
+  };
+
   return (
     <AuthContext.Provider value={{ user, loading, login, logout, sessionToken }}>
       {children}
