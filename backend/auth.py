@@ -53,7 +53,7 @@ async def create_session(x_session_id: str = Header(...)):
         # Create session with 7-day expiry
         session = Session(
             session_token=user_data["session_token"],
-            user_email=user.email,
+            user_email=user_data["email"],
             expires_at=datetime.now(timezone.utc) + timedelta(days=7)
         )
         
