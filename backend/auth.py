@@ -133,3 +133,63 @@ async def logout(request: Request, response: Response):
     response.delete_cookie("session_token", path="/")
     
     return {"message": "Logged out successfully"}
+
+@router.put("/profile")
+async def update_profile(request: Request, age: Optional[int] = None, country: Optional[str] = None):
+    """Update user profile with age and country"""
+    session_token = request.cookies.get("session_token")
+    
+    if not session_token:
+        auth_header = request.headers.get("Authorization")
+        if auth_header and auth_header.startswith("Bearer "):
+            session_token = auth_header.split(" ")[1]
+    
+    if not session_token:
+        raise HTTPException(status_code=401, detail="No session token provided")
+    
+    db = await get_db()
+    
+    # Find session
+    session = await db.sessions.find_one({"session_token": session_token})
+    if not session:
+        raise HTTPException(status_code=401, detail="Invalid session")
+    
+    # Check expiry
+    if session["expires_at"] < datetime.now(timezone.utc):
+        await db.sessions.delete_one({"session_token": session_token})
+        raise HTTPException(status_code=401, detail="Session expired")
+    
+    # Update user profile
+    update_data = {}
+    if age is not None:
+        update_data["age"] = age
+    if country is not None:
+        update_data["country"] = country
+    
+    # Mark profile as complete if both age and country are provided
+    user = await db.users.find_one({"email": session["user_email"]})
+    if user and age is not None and country is not None:
+        update_data["profile_complete"] = True
+    
+    await db.users.update_one(
+        {"email": session["user_email"]},
+        {"$set": update_data}
+    )
+    
+    # Return updated user
+    updated_user = await db.users.find_one({"email": session["user_email"]})
+    if not updated_user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    return {
+        "email": updated_user["email"],
+        "name": updated_user["name"],
+        "picture": updated_user.get("picture"),
+        "age": updated_user.get("age"),
+        "country": updated_user.get("country"),
+        "profile_complete": updated_user.get("profile_complete", False),
+        "total_games": updated_user.get("total_games", 0),
+        "wins": updated_user.get("wins", 0),
+        "losses": updated_user.get("losses", 0),
+        "draws": updated_user.get("draws", 0)
+    }
