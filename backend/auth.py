@@ -96,9 +96,14 @@ async def verify_session(request: Request):
         raise HTTPException(status_code=401, detail="Invalid session")
     
     # Check expiry
-    if session["expires_at"] < datetime.now(timezone.utc):
-        await db.sessions.delete_one({"session_token": session_token})
-        raise HTTPException(status_code=401, detail="Session expired")
+    expires_at = session.get("expires_at")
+    if isinstance(expires_at, datetime):
+        # Make sure both are timezone-aware for comparison
+        if expires_at.tzinfo is None:
+            expires_at = expires_at.replace(tzinfo=timezone.utc)
+        if expires_at < datetime.now(timezone.utc):
+            await db.sessions.delete_one({"session_token": session_token})
+            raise HTTPException(status_code=401, detail="Session expired")
     
     # Get user
     user = await db.users.find_one({"email": session["user_email"]})
@@ -155,9 +160,14 @@ async def update_profile(request: Request, age: Optional[int] = None, country: O
         raise HTTPException(status_code=401, detail="Invalid session")
     
     # Check expiry
-    if session["expires_at"] < datetime.now(timezone.utc):
-        await db.sessions.delete_one({"session_token": session_token})
-        raise HTTPException(status_code=401, detail="Session expired")
+    expires_at = session.get("expires_at")
+    if isinstance(expires_at, datetime):
+        # Make sure both are timezone-aware for comparison
+        if expires_at.tzinfo is None:
+            expires_at = expires_at.replace(tzinfo=timezone.utc)
+        if expires_at < datetime.now(timezone.utc):
+            await db.sessions.delete_one({"session_token": session_token})
+            raise HTTPException(status_code=401, detail="Session expired")
     
     # Update user profile
     update_data = {}
