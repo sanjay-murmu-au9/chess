@@ -145,7 +145,7 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
             setIsAIThinking(true);
             setTimeout(async () => {
               await makeAIMove();
-            }, 500);
+            }, 2000); // Increased to 2 seconds so we can see AI timer counting down
           }
         } else {
           // Invalid move, deselect
