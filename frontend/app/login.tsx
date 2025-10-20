@@ -147,4 +147,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingHorizontal: 20,
   },
+  privacyLink: {
+    color: '#7B61FF',
+    fontWeight: '600',
+    textDecorationLine: 'underline',
+  },
 });
