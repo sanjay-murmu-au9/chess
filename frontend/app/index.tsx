@@ -18,8 +18,12 @@ export default function Index() {
   useEffect(() => {
     if (!loading) {
       if (user) {
-        // User is logged in, redirect to game selection
-        router.replace('/game');
+        // Check if profile is complete
+        if (!user.profile_complete) {
+          router.replace('/onboarding');
+        } else {
+          router.replace('/game');
+        }
       } else {
         // User not logged in, redirect to login
         router.replace('/login');
