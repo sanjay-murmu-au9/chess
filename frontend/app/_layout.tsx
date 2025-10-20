@@ -11,6 +11,9 @@ export default function RootLayout() {
         <Stack.Screen name="onboarding" />
         <Stack.Screen name="game" />
         <Stack.Screen name="profile" />
+        <Stack.Screen name="privacy" />
+        <Stack.Screen name="terms" />
+        <Stack.Screen name="data-deletion" />
       </Stack>
     </AuthProvider>
   );
