@@ -269,4 +269,28 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     marginLeft: 8,
   },
+  legalSection: {
+    marginTop: 24,
+    marginBottom: 20,
+  },
+  legalTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginBottom: 12,
+  },
+  legalLink: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#16213e',
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 8,
+  },
+  legalLinkText: {
+    flex: 1,
+    fontSize: 14,
+    color: '#ffffff',
+    marginLeft: 12,
+  },
 });
