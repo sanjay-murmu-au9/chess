@@ -67,6 +67,9 @@ async def create_session(x_session_id: str = Header(...)):
         raise HTTPException(status_code=504, detail="Authentication service timeout")
     except httpx.RequestError as e:
         raise HTTPException(status_code=503, detail=f"Authentication service error: {str(e)}")
+    except HTTPException:
+        # Re-raise HTTPExceptions as-is (like 401 from invalid session)
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Internal server error: {str(e)}")
 
