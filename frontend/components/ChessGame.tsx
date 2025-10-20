@@ -53,7 +53,21 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
     const timer = setInterval(() => {
       const currentTurn = chess.turn();
       
-      if (currentTurn === 'w') {
+      // Count down the appropriate timer based on whose turn it is
+      // If AI is thinking (isAIThinking is true), count down black's timer
+      // Otherwise, if it's white's turn, count down white's timer
+      if (isAIThinking) {
+        // AI is thinking - count down black timer
+        setBlackTime((prev) => {
+          if (prev <= 1) {
+            setGameActive(false);
+            setGameOverMessage('AI ran out of time! You win!');
+            setShowGameOverDialog(true);
+            return 0;
+          }
+          return prev - 1;
+        });
+      } else if (currentTurn === 'w') {
         // White's turn (player) - countdown white timer
         setWhiteTime((prev) => {
           if (prev <= 1) {
@@ -64,22 +78,11 @@ export default function ChessGame({ playerName, difficulty, onBackToMenu }: Ches
           }
           return prev - 1;
         });
-      } else if (currentTurn === 'b') {
-        // Black's turn (AI) - countdown black timer
-        setBlackTime((prev) => {
-          if (prev <= 1) {
-            setGameActive(false);
-            setGameOverMessage('AI ran out of time! You win!');
-            setShowGameOverDialog(true);
-            return 0;
-          }
-          return prev - 1;
-        });
       }
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [gameActive, fen, showGameOverDialog]);
+  }, [gameActive, fen, isAIThinking, showGameOverDialog]);
 
   const formatTime = (seconds: number): string => {
     const mins = Math.floor(seconds / 60);
