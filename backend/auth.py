@@ -32,17 +32,22 @@ async def create_session(x_session_id: str = Header(...)):
         
         db = await get_db()
         
-        # Create or update user
-        user = User(
-            email=user_data["email"],
-            name=user_data["name"],
-            picture=user_data.get("picture")
-        )
+        # Check if user already exists by email (UNIQUE USER CHECK)
+        existing_user = await db.users.find_one({"email": user_data["email"]})
         
-        # Check if user exists
-        existing_user = await db.users.find_one({"email": user.email})
-        if not existing_user:
-            # Create new user
+        if existing_user:
+            # User exists - just create new session (LOGIN)
+            print(f"User already exists: {user_data['email']} - Logging in")
+            user = existing_user
+        else:
+            # New user - create account (REGISTER)
+            print(f"New user registering: {user_data['email']}")
+            user = User(
+                email=user_data["email"],
+                name=user_data["name"],
+                picture=user_data.get("picture"),
+                profile_complete=False
+            )
             await db.users.insert_one(user.dict())
         
         # Create session with 7-day expiry
