@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Master - Terms of Service</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #7C3AED;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #1a1a2e;
+            border-bottom: 2px solid #7C3AED;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #6366F1;
+        }
+        .effective-date {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .contact-info {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #7C3AED;
+        }
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .back-link a {
+            color: #7C3AED;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #7C3AED;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .back-link a:hover {
+            background: #7C3AED;
+            color: white;
+        }
+        .uppercase {
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Terms of Service for Chess Master</h1>
+        <p class="effective-date"><strong>Effective Date:</strong> October 26, 2025</p>
+
+        <h2>1. Acceptance of Terms</h2>
+        <p>By downloading, installing, or using Chess Master ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+
+        <h2>2. Description of Service</h2>
+        <p>Chess Master is a mobile chess game application that allows users to:</p>
+        <ul>
+            <li>Play chess games against AI opponents</li>
+            <li>Track game statistics and progress</li>
+            <li>Solve chess puzzles</li>
+            <li>Maintain user profiles and game history</li>
+        </ul>
+
+        <h2>3. User Accounts</h2>
+        
+        <h3>Account Creation</h3>
+        <ul>
+            <li>You must provide accurate information when creating an account</li>
+            <li>You are responsible for maintaining the security of your account credentials</li>
+            <li>You must be at least 13 years old to create an account (or have parental consent)</li>
+        </ul>
+
+        <h3>Account Responsibilities</h3>
+        <ul>
+            <li>You are responsible for all activities under your account</li>
+            <li>Notify us immediately of any unauthorized account access</li>
+            <li>Do not share your account credentials with others</li>
+        </ul>
+
+        <h2>4. Acceptable Use</h2>
+        <p>You agree to use the App only for lawful purposes and in accordance with these Terms. You agree <strong>NOT</strong> to:</p>
+        <ul>
+            <li>Use the App for any illegal or unauthorized purpose</li>
+            <li>Attempt to gain unauthorized access to the App or its systems</li>
+            <li>Interfere with or disrupt the App's functionality</li>
+            <li>Use automated systems or bots to interact with the App</li>
+            <li>Reverse engineer, decompile, or disassemble the App</li>
+            <li>Upload or transmit viruses or malicious code</li>
+            <li>Harass, abuse, or harm other users</li>
+            <li>Violate any applicable laws or regulations</li>
+        </ul>
+
+        <h2>5. Intellectual Property</h2>
+        
+        <h3>Our Content</h3>
+        <ul>
+            <li>The App and all its content are owned by Chess Master or our licensors</li>
+            <li>You may not copy, modify, distribute, or create derivative works</li>
+            <li>All trademarks and logos are our property</li>
+        </ul>
+
+        <h3>User Content</h3>
+        <ul>
+            <li>You retain ownership of any content you create or submit</li>
+            <li>You grant us a license to use your content to provide the service</li>
+            <li>You are responsible for ensuring your content doesn't violate rights of others</li>
+        </ul>
+
+        <h2>6. Privacy</h2>
+        <p>Your privacy is important to us. Please review our Privacy Policy, which explains how we collect, use, and protect your information. By using the App, you agree to our privacy practices.</p>
+
+        <h2>7. Game Rules and Fair Play</h2>
+        <ul>
+            <li>Chess games are governed by standard chess rules</li>
+            <li>AI difficulty levels are provided for educational and entertainment purposes</li>
+            <li>We reserve the right to investigate suspected cheating or unfair play</li>
+            <li>Game statistics and results are for personal tracking only</li>
+        </ul>
+
+        <h2>8. In-App Purchases and Subscriptions</h2>
+        <div class="note">
+            <strong>Note:</strong> If your app doesn't have in-app purchases, consider removing this section.
+        </div>
+        <ul>
+            <li>All purchases are final and non-refundable except as required by law</li>
+            <li>Subscription fees are charged in advance and automatically renew</li>
+            <li>You can cancel subscriptions through your device's app store settings</li>
+            <li>Prices may change with notice</li>
+        </ul>
+
+        <h2>9. Disclaimer of Warranties</h2>
+        <p class="uppercase">The app is provided "as is" without warranties of any kind. We disclaim all warranties, express or implied, including:</p>
+        <ul>
+            <li>MERCHANTABILITY</li>
+            <li>FITNESS FOR A PARTICULAR PURPOSE</li>
+            <li>NON-INFRINGEMENT</li>
+            <li>UNINTERRUPTED SERVICE</li>
+        </ul>
+
+        <h2>10. Limitation of Liability</h2>
+        <p class="uppercase">To the maximum extent permitted by law:</p>
+        <ul>
+            <li>We are not liable for any indirect, incidental, or consequential damages</li>
+            <li>Our total liability is limited to the amount you paid for the App (if any)</li>
+            <li>We are not responsible for data loss, device damage, or other technical issues</li>
+        </ul>
+
+        <h2>11. Indemnification</h2>
+        <p>You agree to indemnify and hold us harmless from any claims, damages, or expenses arising from:</p>
+        <ul>
+            <li>Your use of the App</li>
+            <li>Your violation of these Terms</li>
+            <li>Your violation of any third-party rights</li>
+        </ul>
+
+        <h2>12. Termination</h2>
+        
+        <h3>By You</h3>
+        <ul>
+            <li>You may stop using the App at any time</li>
+            <li>You may delete your account through the App settings</li>
+        </ul>
+
+        <h3>By Us</h3>
+        <p>We may terminate or suspend your access if you:</p>
+        <ul>
+            <li>Violate these Terms</li>
+            <li>Engage in prohibited activities</li>
+            <li>Fail to pay applicable fees</li>
+        </ul>
+
+        <h2>13. Changes to Terms</h2>
+        <p>We reserve the right to modify these Terms at any time. We will notify users of material changes through the App or other means. Continued use after changes constitutes acceptance of the new Terms.</p>
+
+        <h2>14. Governing Law</h2>
+        <p>These Terms are governed by and construed in accordance with the laws of the jurisdiction where the app developer is located. Any disputes will be resolved in the appropriate courts of that jurisdiction.</p>
+        <div class="note">
+            <strong>Note:</strong> Update this section with your specific location (e.g., "the State of California, United States" or "the United Kingdom")
+        </div>
+
+        <h2>15. Severability</h2>
+        <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force and effect.</p>
+
+        <h2>16. Entire Agreement</h2>
+        <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Chess Master regarding the App.</p>
+
+        <div class="contact-info">
+            <h2>17. Contact Information</h2>
+            <p>For questions about these Terms of Service, please contact us at:</p>
+            <p><strong>Email:</strong> support@[yourdomain].com <em>(Update with your real email)</em><br>
+            <strong>Support:</strong> Same as above<br>
+            <strong>Address:</strong> [Your business address - can be personal address for sole proprietor]</p>
+            
+            <div class="note">
+                <strong>Note:</strong> Replace placeholder contact information with your real details before publishing.
+            </div>
+        </div>
+
+        <div class="back-link">
+            <a href="/">← Back to Chess Master</a>
+        </div>
+
+        <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
+        <p style="text-align: center; color: #666; font-size: 0.9em;"><strong>Last Updated:</strong> October 26, 2025</p>
+    </div>
+</body>
+</html>
